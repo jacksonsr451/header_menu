@@ -16,7 +16,8 @@ class CustomDropDownMenuItem<T> extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        if (imagePath != null) ImageIcon(AssetImage(imagePath!)),
+        if (imagePath != null && imagePath!.isNotEmpty)
+          ImageIcon(AssetImage(imagePath!)),
         const SizedBox(width: 8),
         Text(text),
       ],
@@ -27,10 +28,12 @@ class CustomDropDownMenuItem<T> extends StatelessWidget {
 class DropDownWidget extends StatefulWidget {
   final String username;
   final String? pathImage;
+  final List<Map<String, dynamic>> items;
 
   const DropDownWidget({
     required this.username,
     this.pathImage,
+    required this.items,
     Key? key,
   }) : super(key: key);
 
@@ -45,7 +48,8 @@ class _DropDownWidgetState extends State<DropDownWidget> {
   @override
   void initState() {
     super.initState();
-    _selectedItem = "1";
+    _selectedItem =
+        widget.items.isNotEmpty ? widget.items.first['value'].toString() : '';
   }
 
   @override
@@ -57,7 +61,7 @@ class _DropDownWidgetState extends State<DropDownWidget> {
       width: 200,
       child: Row(
         children: [
-          if (widget.pathImage != null)
+          if (widget.pathImage != null && widget.pathImage!.isNotEmpty)
             Container(
               decoration: const BoxDecoration(
                 color: Colors.transparent,
@@ -100,20 +104,7 @@ class _DropDownWidgetState extends State<DropDownWidget> {
                       text: widget.username,
                     ),
                   ),
-                  const DropdownMenuItem<String>(
-                    value: '2',
-                    child: CustomDropDownMenuItem(
-                      value: '2',
-                      text: 'Outra ação',
-                    ),
-                  ),
-                  const DropdownMenuItem<String>(
-                    value: '3',
-                    child: CustomDropDownMenuItem(
-                      value: '3',
-                      text: 'Alguma coisa aqui',
-                    ),
-                  ),
+                  ...generateDropdownItems(widget.items),
                 ],
                 onChanged: (String? newValue) {
                   setState(() {
@@ -131,5 +122,22 @@ class _DropDownWidgetState extends State<DropDownWidget> {
         ],
       ),
     );
+  }
+
+  List<DropdownMenuItem<String>> generateDropdownItems(
+      List<Map<String, dynamic>> items) {
+    int value = 2;
+    return items.map((item) {
+      final String itemValue = value.toString();
+      value++;
+      return DropdownMenuItem<String>(
+        value: itemValue,
+        onTap: item["action"],
+        child: CustomDropDownMenuItem(
+          value: item["value"].toString(),
+          text: item["text"] as String,
+        ),
+      );
+    }).toList();
   }
 }

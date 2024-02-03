@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
 class NotificationWidget extends StatefulWidget {
-  const NotificationWidget({Key? key}) : super(key: key);
+  final VoidCallback message;
+  final VoidCallback notification;
+
+  const NotificationWidget({
+    Key? key,
+    required this.message,
+    required this.notification,
+  }) : super(key: key);
 
   @override
   State<NotificationWidget> createState() => _NotificationWidgetState();
@@ -15,9 +22,7 @@ class _NotificationWidgetState extends State<NotificationWidget> {
         MouseRegion(
           cursor: SystemMouseCursors.click,
           child: GestureDetector(
-            onTap: () {
-              // Lógica a ser executada quando o ícone de correio for clicado
-            },
+            onTap: widget.message,
             child: const Icon(
               Icons.mail,
               color: Color(0xFFb3b7c0),
@@ -28,9 +33,7 @@ class _NotificationWidgetState extends State<NotificationWidget> {
         MouseRegion(
           cursor: SystemMouseCursors.click,
           child: GestureDetector(
-            onTap: () {
-              // Lógica a ser executada quando o ícone de notificação for clicado
-            },
+            onTap: widget.notification,
             child: const Icon(
               Icons.notification_add,
               color: Color(0xFFb3b7c0),
