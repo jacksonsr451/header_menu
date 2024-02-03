@@ -9,13 +9,7 @@ class HeaderMenuWidget extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: kToolbarHeight + 30,
-      padding: const EdgeInsets.only(
-        top: 10,
-        bottom: 10,
-        left: 10,
-        right: 10,
-      ),
+      padding: const EdgeInsets.only(bottom: 2.0 * 5),
       decoration: const BoxDecoration(
         color: Color(0xFF272e4b),
         borderRadius: BorderRadius.only(
@@ -31,34 +25,82 @@ class HeaderMenuWidget extends StatelessWidget implements PreferredSizeWidget {
             ),
           ),
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        child: LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) {
+            final maxWidth = constraints.maxWidth;
+            if (maxWidth < 600) {
+              return _buildColumnLayout();
+            } else {
+              return _buildRowLayout();
+            }
+          },
+        ),
+      ),
+    );
+  }
+
+  Widget _buildBorder() {
+    return Container(
+      height: 24,
+      width: 2,
+      color: const Color(0xFFb3b7c0),
+    );
+  }
+
+  Widget _buildColumnLayout() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          child: SearchWidget(),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            const SearchWidget(),
-            Container(
-              padding: const EdgeInsets.all(10),
-              child: const Row(
-                children: [
-                  NotificationWidget(),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  VerticalDivider(
-                    color: Color(0xFFb3b7c0),
-                    width: 2.0,
-                  ),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  DropDownWidget(
-                    username: "Jackson",
-                  ),
-                ],
-              ),
+            _buildBorder(),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: NotificationWidget(),
+            ),
+            _buildBorder(),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: DropDownWidget(username: "Jackson"),
             ),
           ],
         ),
-      ),
+      ],
+    );
+  }
+
+  Widget _buildRowLayout() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          child: SearchWidget(),
+        ),
+        Container(
+          padding: const EdgeInsets.all(10),
+          child: Row(
+            children: [
+              _buildBorder(),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                child: NotificationWidget(),
+              ),
+              _buildBorder(),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                child: DropDownWidget(username: "Jackson"),
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 
