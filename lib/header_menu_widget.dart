@@ -80,7 +80,7 @@ class HeaderMenuWidget extends StatelessWidget implements PreferredSizeWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          padding: EdgeInsets.symmetric(horizontal: 10),
           child: SearchWidget(),
         ),
         Container(
