@@ -9,7 +9,7 @@ void main() {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              width: 245,
+              width: 255,
               color: Colors.blue,
               alignment: Alignment.center,
               child: const Text("Menu"),

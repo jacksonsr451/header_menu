@@ -8,8 +8,6 @@ class HeaderMenuWidget extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    double space = 1.0 * 5;
-
     return Container(
       height: kToolbarHeight + 30,
       padding: const EdgeInsets.only(
@@ -18,7 +16,6 @@ class HeaderMenuWidget extends StatelessWidget implements PreferredSizeWidget {
         left: 10,
         right: 10,
       ),
-      margin: EdgeInsets.only(top: space, right: space),
       decoration: const BoxDecoration(
         color: Color(0xFF272e4b),
         borderRadius: BorderRadius.only(
