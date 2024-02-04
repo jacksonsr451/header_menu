@@ -55,12 +55,12 @@ class _SearchWidgetState extends State<SearchWidget> {
                 border: InputBorder.none,
                 hintStyle: TextStyle(
                   fontWeight: FontWeight.w600,
-                  color: Theme.of(context).textTheme.bodyLarge?.color,
+                  color: Theme.of(context).textTheme.bodySmall?.color,
                 ),
               ),
               style: TextStyle(
                 fontWeight: FontWeight.w600,
-                color: Theme.of(context).textTheme.bodyLarge?.color,
+                color: Theme.of(context).textTheme.bodySmall?.color,
               ),
             ),
           ),
