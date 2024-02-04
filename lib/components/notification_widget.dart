@@ -25,7 +25,7 @@ class _NotificationWidgetState extends State<NotificationWidget> {
             onTap: widget.message,
             child: Icon(
               Icons.mail,
-              color: Theme.of(context).textTheme.bodyLarge?.color,
+              color: Theme.of(context).textTheme.bodySmall?.color,
             ),
           ),
         ),
@@ -36,7 +36,7 @@ class _NotificationWidgetState extends State<NotificationWidget> {
             onTap: widget.notification,
             child: Icon(
               Icons.notification_add,
-              color: Theme.of(context).textTheme.bodyLarge?.color,
+              color: Theme.of(context).textTheme.bodySmall?.color,
             ),
           ),
         ),

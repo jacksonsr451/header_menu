@@ -82,19 +82,19 @@ class _DropDownWidgetState extends State<DropDownWidget> {
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w600,
-                  color: Theme.of(context).textTheme.bodyLarge?.color,
+                  color: Theme.of(context).textTheme.bodySmall?.color,
                 ),
                 value: _selectedItem,
                 icon: Icon(
                   Icons.arrow_drop_down,
-                  color: Theme.of(context).textTheme.bodyLarge?.color,
+                  color: Theme.of(context).textTheme.bodySmall?.color,
                 ),
                 iconSize: 24,
                 elevation: 16,
                 isExpanded: true,
                 underline: Container(
                   height: 2,
-                  color: Theme.of(context).textTheme.bodyLarge?.color,
+                  color: Theme.of(context).textTheme.bodySmall?.color,
                 ),
                 items: [
                   DropdownMenuItem<String>(

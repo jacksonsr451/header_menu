@@ -25,7 +25,7 @@ class HeaderMenuWidget extends StatelessWidget implements PreferredSizeWidget {
         decoration: BoxDecoration(
           border: Border(
             bottom: BorderSide(
-              color: Theme.of(context).textTheme.bodyLarge?.color ??
+              color: Theme.of(context).textTheme.bodySmall?.color ??
                   const Color(0xFFFFFFFF),
               width: 2.0,
             ),
@@ -49,7 +49,7 @@ class HeaderMenuWidget extends StatelessWidget implements PreferredSizeWidget {
     return Container(
       height: 24,
       width: 2,
-      color: Theme.of(context).textTheme.bodyLarge?.color,
+      color: Theme.of(context).textTheme.bodySmall?.color,
     );
   }
 
