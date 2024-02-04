@@ -31,7 +31,7 @@ class _SearchWidgetState extends State<SearchWidget> {
         bottom: 10,
       ),
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.secondary,
+        color: Theme.of(context).colorScheme.inverseSurface,
         borderRadius: BorderRadius.circular(25.0),
       ),
       child: Row(
