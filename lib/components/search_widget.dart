@@ -31,7 +31,7 @@ class _SearchWidgetState extends State<SearchWidget> {
         bottom: 10,
       ),
       decoration: BoxDecoration(
-        color: const Color(0xFF333954),
+        color: Theme.of(context).colorScheme.secondary,
         borderRadius: BorderRadius.circular(25.0),
       ),
       child: Row(
@@ -53,22 +53,22 @@ class _SearchWidgetState extends State<SearchWidget> {
               decoration: InputDecoration(
                 hintText: widget.placeholder,
                 border: InputBorder.none,
-                hintStyle: const TextStyle(
+                hintStyle: TextStyle(
                   fontWeight: FontWeight.w600,
-                  color: Color(0xFFb3b7c0),
+                  color: Theme.of(context).textTheme.bodyLarge?.color,
                 ),
               ),
-              style: const TextStyle(
+              style: TextStyle(
                 fontWeight: FontWeight.w600,
-                color: Color(0xFFb3b7c0),
+                color: Theme.of(context).textTheme.bodyLarge?.color,
               ),
             ),
           ),
           IconButton(
-            icon: const Icon(
+            icon: Icon(
               Icons.search,
               size: 24.0,
-              color: Color(0xFFb3b7c0),
+              color: Theme.of(context).textTheme.bodyLarge?.color,
             ),
             onPressed: () {
               String searchTerm = _searchController.text;

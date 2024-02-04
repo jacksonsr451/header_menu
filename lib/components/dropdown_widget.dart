@@ -79,22 +79,22 @@ class _DropDownWidgetState extends State<DropDownWidget> {
           Expanded(
             child: DropdownButtonHideUnderline(
               child: DropdownButton<String>(
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w600,
-                  color: Color(0xFFb3b7c0),
+                  color: Theme.of(context).textTheme.bodyLarge?.color,
                 ),
                 value: _selectedItem,
-                icon: const Icon(
+                icon: Icon(
                   Icons.arrow_drop_down,
-                  color: Color(0xFFb3b7c0),
+                  color: Theme.of(context).textTheme.bodyLarge?.color,
                 ),
                 iconSize: 24,
                 elevation: 16,
                 isExpanded: true,
                 underline: Container(
                   height: 2,
-                  color: const Color(0xFFb3b7c0),
+                  color: Theme.of(context).textTheme.bodyLarge?.color,
                 ),
                 items: [
                   DropdownMenuItem<String>(

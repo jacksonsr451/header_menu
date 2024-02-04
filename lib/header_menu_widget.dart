@@ -15,17 +15,18 @@ class HeaderMenuWidget extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.only(bottom: 2.0 * 5),
-      decoration: const BoxDecoration(
-        color: Color(0xFF272e4b),
-        borderRadius: BorderRadius.only(
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.tertiary,
+        borderRadius: const BorderRadius.only(
           topRight: Radius.circular(20.0),
         ),
       ),
       child: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           border: Border(
             bottom: BorderSide(
-              color: Color(0xFFb3b7c0),
+              color: Theme.of(context).textTheme.bodyLarge?.color ??
+                  const Color(0xFFFFFFFF),
               width: 2.0,
             ),
           ),
@@ -44,11 +45,11 @@ class HeaderMenuWidget extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  Widget _buildBorder() {
+  Widget _buildBorder(BuildContext context) {
     return Container(
       height: 24,
       width: 2,
-      color: const Color(0xFFb3b7c0),
+      color: Theme.of(context).textTheme.bodyLarge?.color,
     );
   }
 
@@ -67,7 +68,7 @@ class HeaderMenuWidget extends StatelessWidget implements PreferredSizeWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            _buildBorder(),
+            _buildBorder(context),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: NotificationWidget(
@@ -75,7 +76,7 @@ class HeaderMenuWidget extends StatelessWidget implements PreferredSizeWidget {
                 notification: headerMap["notifications"]["notification"],
               ),
             ),
-            _buildBorder(),
+            _buildBorder(context),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: DropDownWidget(
@@ -105,7 +106,7 @@ class HeaderMenuWidget extends StatelessWidget implements PreferredSizeWidget {
           padding: const EdgeInsets.all(10),
           child: Row(
             children: [
-              _buildBorder(),
+              _buildBorder(context),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: NotificationWidget(
@@ -113,7 +114,7 @@ class HeaderMenuWidget extends StatelessWidget implements PreferredSizeWidget {
                   notification: headerMap["notifications"]["notification"],
                 ),
               ),
-              _buildBorder(),
+              _buildBorder(context),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: DropDownWidget(

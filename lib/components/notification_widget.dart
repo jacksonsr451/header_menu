@@ -23,9 +23,9 @@ class _NotificationWidgetState extends State<NotificationWidget> {
           cursor: SystemMouseCursors.click,
           child: GestureDetector(
             onTap: widget.message,
-            child: const Icon(
+            child: Icon(
               Icons.mail,
-              color: Color(0xFFb3b7c0),
+              color: Theme.of(context).textTheme.bodyLarge?.color,
             ),
           ),
         ),
@@ -34,9 +34,9 @@ class _NotificationWidgetState extends State<NotificationWidget> {
           cursor: SystemMouseCursors.click,
           child: GestureDetector(
             onTap: widget.notification,
-            child: const Icon(
+            child: Icon(
               Icons.notification_add,
-              color: Color(0xFFb3b7c0),
+              color: Theme.of(context).textTheme.bodyLarge?.color,
             ),
           ),
         ),
