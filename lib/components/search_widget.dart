@@ -60,7 +60,7 @@ class _SearchWidgetState extends State<SearchWidget> {
               ),
               style: TextStyle(
                 fontWeight: FontWeight.w600,
-                color: Theme.of(context).textTheme.bodySmall?.color,
+                color: Theme.of(context).textTheme.bodyLarge?.color,
               ),
             ),
           ),
